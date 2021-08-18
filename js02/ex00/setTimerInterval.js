@@ -1,9 +1,16 @@
-function setInterv (callback, time) {
-    this.state = {
-        count: 0
-    };
-
-    setInterval(callback(this.state.count++), time);
+let i = 0;
+function setTimer (callback, time) {
+    let timerId= setInterval(()=>{ 
+        callback(i++)
+        if (callback(i++) === false) {
+            clearInterval(timerId);
+        }
+    }, time);
 }
 
-module.exports = {setInterv}
+function printNum(count) {
+    console.log(count);
+    return count < 3;
+  }
+  
+  setTimer(printNum, 100);

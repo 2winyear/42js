@@ -1,10 +1,10 @@
 function setTimer (callback, time) {
-  const tick = () => {
-    setTimeout((i) => {
-      if(callback(i++))
-        tick(i);
-    }, time);
-  }
+  function tick (i) {
+    setTimeout(()=> {
+      callback(i)
+      if (callback(++i) === true)
+        tick(++i);
+    }, time)};
   tick(0);
 }
 
