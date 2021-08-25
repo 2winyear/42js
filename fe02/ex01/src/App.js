@@ -19,6 +19,7 @@ const App = () => {
         });
         setData(response.data.results);
         console.log(response.data.results);
+
       } catch (error) {
         setError(error);
         console.log("으악");
@@ -35,14 +36,9 @@ const App = () => {
 					<li key={data.id}>{data.name}</li>
 					<li key={`${data.id} + 1`}>{data.person? data.person.email : 'no E-mail'}</li>
 					<li key={`${data.id} + 2`}>{data.type}</li>
-					{/* <img alt={data.name}>{data.avatar_url}</img> */}
+					<img alt={data.name}>{data.avatar_url}</img>
 				</ul>
 			)) : 'No Users!')}
-		{/* {(data) => (
-			<ul>
-				<li>{data}</li>
-			</ul>
-		)} */}
     </div>
   )
 }
