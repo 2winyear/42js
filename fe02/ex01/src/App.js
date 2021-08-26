@@ -19,7 +19,6 @@ const App = () => {
         });
         setData(response.data.results);
         console.log(response.data.results);
-
       } catch (error) {
         setError(error);
         console.log("으악");
@@ -30,15 +29,14 @@ const App = () => {
 
   return (
     <div>
-		hi
-    {error ? error : (data ? data.map((data) => (
-				<ul>
-					<li key={data.id}>{data.name}</li>
-					<li key={`${data.id} + 1`}>{data.person? data.person.email : 'no E-mail'}</li>
-					<li key={`${data.id} + 2`}>{data.type}</li>
-					<img alt={data.name}>{data.avatar_url}</img>
-				</ul>
-			)) : 'No Users!')}
+      {error ? error : (data ? data.map((data) => (
+          <ul>
+            <li key={data.id}>{data.name}</li>
+            <li key={`${data.id} + 1`}>{data.person? data.person.email : 'no E-mail'}</li>
+            <li key={`${data.id} + 2`}>{data.type}</li>
+            <img src={data.avatur_id} alt={data.name}>{data.avatur_id}</img>
+          </ul>
+        )) : 'No')}
     </div>
   )
 }
